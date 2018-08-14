@@ -13,6 +13,9 @@
     
 
     
+        <meta name="description" content="学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，又需要的同学可以看axios官方文档今天的重点主要在post方法，因为get方法使用很简单，而post会遇到一些数据格式的坑。
+1、传对象首先来看一下最普遍的使用方法，在post方法中传参传入一个对象，ax"/>
+    
 
     <!--Author-->
     
@@ -21,10 +24,13 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="腊肠的博客"/>
+        <meta property="og:title" content="axios post 方法踩坑"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，又需要的同学可以看axios官方文档今天的重点主要在post方法，因为get方法使用很简单，而post会遇到一些数据格式的坑。
+1、传对象首先来看一下最普遍的使用方法，在post方法中传参传入一个对象，ax"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +38,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +57,7 @@
 
     <!-- Title -->
     
-    <title>腊肠的博客</title>
+    <title>axios post 方法踩坑 - 腊肠的博客</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -154,81 +160,95 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>腊肠的博客</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
+                <div class="post-heading">
+                    <h1>axios post 方法踩坑</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-08-14
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2018/08/14/axiospost/">
-        <h2 class="post-title">
-            axios post 方法踩坑
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-08-14
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/08/09/javascriptHP1/">
-        <h2 class="post-title">
-            《高性能Javascript》阅读笔记（一）
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-08-09
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/07/25/hello-world/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-07-25
-    </p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Vue/">#Vue</a> <a href="/tags/http/">#http</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
 
-            <ul class="pager">
-    
-    
-</ul>
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h4 id="学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，又需要的同学可以看axios官方文档"><a href="#学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，又需要的同学可以看axios官方文档" class="headerlink" title="学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，又需要的同学可以看axios官方文档"></a>学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，又需要的同学可以看<a href="https://www.kancloud.cn/yunye/axios/234845" target="_blank" rel="noopener">axios官方文档</a></h4><p>今天的重点主要在post方法，因为get方法使用很简单，而post会遇到一些数据格式的坑。</p>
+<h3 id="1、传对象"><a href="#1、传对象" class="headerlink" title="1、传对象"></a>1、传对象</h3><p>首先来看一下最普遍的使用方法，在post方法中传参传入一个对象，axios帮你封装成一个json发送出去。如下图</p>
+<p><img src="/2018/08/14/axiospost/json1.PNG" alt="image"></p>
+<p>打开浏览器控制台看一下发送请求的详细信息</p>
+<p><img src="/2018/08/14/axiospost/json3.PNG" alt="image"></p>
+<p>发送的content-type为application/json，且请求提为Request Payload，展开可以看body里是json对象，里面是相应的键值对，也就是说axios的post方法帮我们把对象转换为json字符串并改变content-type为application/json发送出去。</p>
+<h3 id="2、JSON-stringify"><a href="#2、JSON-stringify" class="headerlink" title="2、JSON.stringify"></a>2、JSON.stringify</h3><p>因为现在很多post方法在后端都是接受的json字符串，所以一般用上面的方法都没问题，但是如果post接口中需求的字段比较少，就有可能采用键值对形式，这个时候使用上面的方法，后端是接不到数据的，这个时候你会想用JSON.stringify方法，如下图</p>
+<p><img src="/2018/08/14/axiospost/JSONstringify1.PNG" alt="image"></p>
+<p>打开浏览器控制台看一下发送请求的详细信息</p>
+<p><img src="/2018/08/14/axiospost/JSONstringify3.PNG" alt="image"></p>
+<p>发送的content-type为application/x-www-form-urlencoded，且请求体为Form Data，展开<br>可以看出请求体内是一个json字符串，里面是相应的键值对，用JSON.stringify改变了content-type，和请求体的形式</p>
+<h3 id="3、用qs库"><a href="#3、用qs库" class="headerlink" title="3、用qs库"></a>3、用qs库</h3><p>首先引入qs，qs和axios一起被安装了，所以在需要用的地方直接import就行</p>
+<p><img src="/2018/08/14/axiospost/importqs.PNG" alt="image"></p>
+<p>使用方法如下</p>
+<p><img src="/2018/08/14/axiospost/qs1.PNG" alt="image"></p>
+<p><img src="/2018/08/14/axiospost/qs3.PNG" alt="image"></p>
+<p>我们可以看到，content-type为application/x-www-form-urlencoded，请求体为Form Data且请求体是键值对的形式</p>
+<h3 id="4、用URLSearchParams"><a href="#4、用URLSearchParams" class="headerlink" title="4、用URLSearchParams"></a>4、用URLSearchParams</h3><p>创建一个URLSearchParams对象，然后为它添加相应的键名和值，如下图</p>
+<p><img src="/2018/08/14/axiospost/URLSearch1.PNG" alt="image"></p>
+<p><img src="/2018/08/14/axiospost/URLSearch3.PNG" alt="image"></p>
+<p>我们可以看到和使用qs库产生的请求一样，不过这种方式的兼容性比较差，有一些浏览器不兼容URLSearchParams方法</p>
+<h3 id="5、直接插值到URL中"><a href="#5、直接插值到URL中" class="headerlink" title="5、直接插值到URL中"></a>5、直接插值到URL中</h3><p><img src="/2018/08/14/axiospost/query1.PNG" alt="image"></p>
+<p><img src="/2018/08/14/axiospost/query3.PNG" alt="image"></p>
+<p>这种方法不推荐使用，知识作为展示。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
