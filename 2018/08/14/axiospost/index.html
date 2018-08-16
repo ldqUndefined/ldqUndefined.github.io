@@ -13,8 +13,7 @@
     
 
     
-        <meta name="description" content="学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，又需要的同学可以看axios官方文档今天的重点主要在post方法，因为get方法使用很简单，而post会遇到一些数据格式的坑。
-1、传对象首先来看一下最普遍的使用方法，在post方法中传参传入一个对象，ax"/>
+        <meta name="description" content="学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，有需要的同学可以看axios官方文档今天的重点主要在post方法，因为get方法使用很简单，而post会遇到一些数据格式的坑。主要原因是在于axios会根据你传入的数据来改变content-type，这就导"/>
     
 
     <!--Author-->
@@ -29,8 +28,7 @@
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，又需要的同学可以看axios官方文档今天的重点主要在post方法，因为get方法使用很简单，而post会遇到一些数据格式的坑。
-1、传对象首先来看一下最普遍的使用方法，在post方法中传参传入一个对象，ax"/>
+        <meta property="og:description" content="学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，有需要的同学可以看axios官方文档今天的重点主要在post方法，因为get方法使用很简单，而post会遇到一些数据格式的坑。主要原因是在于axios会根据你传入的数据来改变content-type，这就导"/>
     
 
     <!--Open Graph Site Name-->
@@ -209,17 +207,20 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h4 id="学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，又需要的同学可以看axios官方文档"><a href="#学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，又需要的同学可以看axios官方文档" class="headerlink" title="学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，又需要的同学可以看axios官方文档"></a>学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，又需要的同学可以看<a href="https://www.kancloud.cn/yunye/axios/234845" target="_blank" rel="noopener">axios官方文档</a></h4><p>今天的重点主要在post方法，因为get方法使用很简单，而post会遇到一些数据格式的坑。</p>
+                <h4 id="学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，有需要的同学可以看axios官方文档"><a href="#学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，有需要的同学可以看axios官方文档" class="headerlink" title="学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，有需要的同学可以看axios官方文档"></a>学了Vue之后自然而然要用Vue官方推荐的axios，一个很好用的http库，使用也特别方便，有需要的同学可以看<a href="https://www.kancloud.cn/yunye/axios/234845" target="_blank" rel="noopener">axios官方文档</a></h4><p>今天的重点主要在post方法，因为get方法使用很简单，而post会遇到一些数据格式的坑。主要原因是在于axios会根据你传入的数据来改变content-type，这就导致了当后端想要接受form data时你传了request payload装着json过去。</p>
+<p>我们来看一下当使用post时可能使用的方式及数据格式</p>
 <h3 id="1、传对象"><a href="#1、传对象" class="headerlink" title="1、传对象"></a>1、传对象</h3><p>首先来看一下最普遍的使用方法，在post方法中传参传入一个对象，axios帮你封装成一个json发送出去。如下图</p>
 <p><img src="/2018/08/14/axiospost/json1.PNG" alt="image"></p>
 <p>打开浏览器控制台看一下发送请求的详细信息</p>
 <p><img src="/2018/08/14/axiospost/json3.PNG" alt="image"></p>
-<p>发送的content-type为application/json，且请求提为Request Payload，展开可以看body里是json对象，里面是相应的键值对，也就是说axios的post方法帮我们把对象转换为json字符串并改变content-type为application/json发送出去。</p>
-<h3 id="2、JSON-stringify"><a href="#2、JSON-stringify" class="headerlink" title="2、JSON.stringify"></a>2、JSON.stringify</h3><p>因为现在很多post方法在后端都是接受的json字符串，所以一般用上面的方法都没问题，但是如果post接口中需求的字段比较少，就有可能采用键值对形式，这个时候使用上面的方法，后端是接不到数据的，这个时候你会想用JSON.stringify方法，如下图</p>
+<p>发送的content-type为application/json，且请求提为Request Payload，展开可以看body里是json字符串，里面是相应的键值对，也就是说axios的post方法帮我们把对象转换为json字符串并改变content-type为application/json发送出去。</p>
+<h3 id="2、JSON-stringify"><a href="#2、JSON-stringify" class="headerlink" title="2、JSON.stringify"></a>2、JSON.stringify</h3><p>因为现在很多post方法在后端都是接受的json字符串，所以一般用上面的方法都没问题，但是如果post接口中需求的字段比较少，就有可能采用键值对形式，这个时候使用上面的方法，后端是接不到数据的，这个时候你可能会想用JSON.stringify方法，如下图</p>
 <p><img src="/2018/08/14/axiospost/JSONstringify1.PNG" alt="image"></p>
 <p>打开浏览器控制台看一下发送请求的详细信息</p>
 <p><img src="/2018/08/14/axiospost/JSONstringify3.PNG" alt="image"></p>
-<p>发送的content-type为application/x-www-form-urlencoded，且请求体为Form Data，展开<br>可以看出请求体内是一个json字符串，里面是相应的键值对，用JSON.stringify改变了content-type，和请求体的形式</p>
+<p>发送的content-type为application/x-www-form-urlencoded，且请求体为Form Data，展开可以看出请求体内是一个json字符串，里面是相应的键值对，用JSON.stringify改变了content-type，和请求体的形式</p>
+<p>但是这样会产生问题，content-type为application/x-www-form-urlencoded，但是body中却是json字符串而不是形如id=’abc’&amp;password=’12345’的键值对，这样和后端要求的数据格式不同，后端无法接收到</p>
+<p>下面要讲的方法就可以帮助你以application/x-www-form-urlencoded的content-type发送并且body中为键值对形式。</p>
 <h3 id="3、用qs库"><a href="#3、用qs库" class="headerlink" title="3、用qs库"></a>3、用qs库</h3><p>首先引入qs，qs和axios一起被安装了，所以在需要用的地方直接import就行</p>
 <p><img src="/2018/08/14/axiospost/importqs.PNG" alt="image"></p>
 <p>使用方法如下</p>
@@ -232,8 +233,8 @@
 <p>我们可以看到和使用qs库产生的请求一样，不过这种方式的兼容性比较差，有一些浏览器不兼容URLSearchParams方法</p>
 <h3 id="5、直接插值到URL中"><a href="#5、直接插值到URL中" class="headerlink" title="5、直接插值到URL中"></a>5、直接插值到URL中</h3><p><img src="/2018/08/14/axiospost/query1.PNG" alt="image"></p>
 <p><img src="/2018/08/14/axiospost/query3.PNG" alt="image"></p>
-<p>这种方法不推荐使用，知识作为展示。</p>
-
+<p>这种方法不推荐使用，仅做参考。</p>
+<h5 id="3和4是axios官方文档中推荐的方法，建议用3，简便快捷而且qs是随axios一起安装的，4的用法有些浏览器不兼容而且写得也比用qs麻烦"><a href="#3和4是axios官方文档中推荐的方法，建议用3，简便快捷而且qs是随axios一起安装的，4的用法有些浏览器不兼容而且写得也比用qs麻烦" class="headerlink" title="3和4是axios官方文档中推荐的方法，建议用3，简便快捷而且qs是随axios一起安装的，4的用法有些浏览器不兼容而且写得也比用qs麻烦"></a>3和4是axios官方文档中推荐的方法，建议用3，简便快捷而且qs是随axios一起安装的，4的用法有些浏览器不兼容而且写得也比用qs麻烦</h5>
 
                 
             </div>

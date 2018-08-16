@@ -211,12 +211,12 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <h2 id="今天下载了《高性能JAVASCRIPT》的电子书，所以这篇博客用来记录在这本书中学到的提高JAVASCRIPT性能的方法。"><a href="#今天下载了《高性能JAVASCRIPT》的电子书，所以这篇博客用来记录在这本书中学到的提高JAVASCRIPT性能的方法。" class="headerlink" title="今天下载了《高性能JAVASCRIPT》的电子书，所以这篇博客用来记录在这本书中学到的提高JAVASCRIPT性能的方法。"></a>今天下载了《高性能JAVASCRIPT》的电子书，所以这篇博客用来记录在这本书中学到的提高JAVASCRIPT性能的方法。</h2><h3 id="一、加载和运行"><a href="#一、加载和运行" class="headerlink" title="一、加载和运行"></a>一、加载和运行</h3><p>-</p>
 <h4 id="1、-lt-script-gt-标签的位置"><a href="#1、-lt-script-gt-标签的位置" class="headerlink" title="1、&lt;script&gt;标签的位置"></a>1、&lt;script&gt;标签的位置</h4><p>&lt;script&gt;标签可以放在&lt;head&gt;和&lt;body&gt;标签中，可以多次出现。传统上&lt;script&gt;标签用于加载外部javascript文件。&lt;head&gt;部分除了包含此类代码之外，还包含&lt;link&gt;标签用于加载外部css文件和其他页面的中间件（最好把相同风格和行为所以来的部分放在一起，也就是说,&lt;link&gt;连着放，&lt;script&gt;连着放），这样可以使页面得到争取的外观和行为。<br>如果把&lt;script&gt;都放在&lt;head&gt;里的话，浏览器在加载外部文件的同时，会阻塞页面的渲染，所以页面打开时会先经历一个明显的空白时间段，对用户不友好。</p>
-<p><img src="/2018/08/09/javascriptHP1/1.png" alt="image"><br><img src="/2018/08/09/javascriptHP1/2.png" alt="image"></p>
+<p><img src="/2018/08/09/javascriptHP1/1.PNG" alt="image"><br><img src="/2018/08/09/javascriptHP1/2.PNG" alt="image"></p>
 <p>如上图是代码运行时文件加载及运行时间图，每个JS在加载后并完全运行后才能加载下一个js文件。</p>
 <p>不过现代浏览器已经可以并行下载外部资源了，&lt;script&gt;不会阻塞&lt;script&gt;标签的下载，但是仍然会阻塞其他资源的下载，例如图片，脚本并行下载互不阻塞，但页面仍要等待所有js代码下载并执行完后才能继续。</p>
 <p>解决方案：将所有&lt;script&gt;标签放在尽可能靠近&lt;body&gt;标签底部的位置，尽量减少对整个页面加载的影响。<br>因为http请求产生额外性能负担，100KB的文件加载比4个25KB文件快，所以可以合并js文件，用一个标签引用，减少性能损失，可以通过打包工具实现。</p>
 <h4 id="2、defer属性"><a href="#2、defer属性" class="headerlink" title="2、defer属性"></a>2、defer属性</h4><p>&lt;script&gt;中有个defer属性，表明该脚本不打算修改DOM，因此代码可以稍后执行。带有defer属性的&lt;script&gt;标签可以放在文档的任何位置，相应的js文件在&lt;script&gt;被解析时下载，但不会被执行，直到DOM加载完成（在onload事件句柄被调用之前）。defer的js文件被下载时不会阻塞浏览器其他处理过程，可以和页面其他资源一起并行下载。注意，带有defer的&lt;script&gt;元素在DOM加载完成之前不会被执行，并在onload事件句柄被调用前执行。</p>
-<h4 id="3、通过DOM函数创建-lt-script-gt-元素"><a href="#3、通过DOM函数创建-lt-script-gt-元素" class="headerlink" title="3、通过DOM函数创建&lt;script&gt;元素"></a>3、通过DOM函数创建&lt;script&gt;元素</h4><p><img src="/2018/08/09/javascriptHP1/3.png" alt="image"></p>
+<h4 id="3、通过DOM函数创建-lt-script-gt-元素"><a href="#3、通过DOM函数创建-lt-script-gt-元素" class="headerlink" title="3、通过DOM函数创建&lt;script&gt;元素"></a>3、通过DOM函数创建&lt;script&gt;元素</h4><p><img src="/2018/08/09/javascriptHP1/3.PNG" alt="image"></p>
 <p>如上图所示，这个文件在元素添加到页面之后立刻开始下载。这个方法的重点在于：无论在何处启动下载，文件的下载和运行都不会阻塞其他页面处理过程，放在&lt;head&gt;里也不会对其余部分的页面代码造成影响（除了用于下载文件的HTTP连接）。使用这种方法下载的代码通常立即执行。<br>在页面中可以动态加载很多js文件，但是不能保证文件加载的顺序，一般浏览器按照服务器返回他们的次序下载并运行不同的文件代码。如果代码次序很重要的话就把这些文件按照正确的次序连接成一个文件，独立文件可以一次性下载所有代码（由于动态下载是异步进行的，使用一个大文件并没有什么损失）。动态脚本加载时非阻塞js下载中最常用的模式，因为可以跨浏览器且简单易用</p>
 <h4 id="4、用ajax"><a href="#4、用ajax" class="headerlink" title="4、用ajax"></a>4、用ajax</h4><p>优点在于下载不立即执行的js代码，返回的代码在&lt;script&gt;代码之外，下载后不会立即执行，可以推迟执行。缺点是请求的js文件要和页面放在同一个域里</p>
 
