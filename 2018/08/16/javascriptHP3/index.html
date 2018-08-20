@@ -13,10 +13,11 @@
     
 
     
-        <meta name="description" content="四、算法和流程控制循环循环有4中：for、while、do-while、for-in。
+        <meta name="description" content="四、算法和流程控制
+循环循环有4中：for、while、do-while、for-in。
 前三种在其他语言里也很常见就不说了。for-in可以枚举对象的命名属性，基本格式如下：
 123for (var prop in object)&amp;#123;    //loop body&amp;#125;
-每次循环，pr"/>
+每次循环，p"/>
     
 
     <!--Author-->
@@ -31,10 +32,11 @@
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="四、算法和流程控制循环循环有4中：for、while、do-while、for-in。
+        <meta property="og:description" content="四、算法和流程控制
+循环循环有4中：for、while、do-while、for-in。
 前三种在其他语言里也很常见就不说了。for-in可以枚举对象的命名属性，基本格式如下：
 123for (var prop in object)&amp;#123;    //loop body&amp;#125;
-每次循环，pr"/>
+每次循环，p"/>
     
 
     <!--Open Graph Site Name-->
@@ -213,31 +215,33 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h2 id="四、算法和流程控制"><a href="#四、算法和流程控制" class="headerlink" title="四、算法和流程控制"></a>四、算法和流程控制</h2><h5 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h5><p>循环有4中：for、while、do-while、for-in。</p>
+                <h2 id="四、算法和流程控制"><a href="#四、算法和流程控制" class="headerlink" title="四、算法和流程控制"></a>四、算法和流程控制</h2><p><br></p>
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><p>循环有4中：for、while、do-while、for-in。</p>
 <p>前三种在其他语言里也很常见就不说了。for-in可以枚举对象的命名属性，基本格式如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (var prop in object)&#123;</span><br><span class="line">    //loop body</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>每次循环，prop被对象属性（一个字符串）填充，直到所有的对象属性遍历完成才返回。返回的属性包括对象实例属性和它从原型链继承而来的属性。</p>
-<h5 id="循环性能"><a href="#循环性能" class="headerlink" title="循环性能"></a>循环性能</h5><p>在Javascript提供的四种循环类型中，只有一种循环比其他循环明显要慢，那就是for-in循环。由于每次迭代操作要搜索实例或者原型的属性，for-in循环每次迭代都要付出更多开销，所以比其他循环慢一些。因此推荐的做法如下：除非你需要对数目不详的独享属性进行操作，否则避免使用for-in循环。如果迭代遍历一个有限的，已知的属性列表，使用其他循环类型更快，可以用下面的模式</p>
+<h3 id="循环性能"><a href="#循环性能" class="headerlink" title="循环性能"></a>循环性能</h3><p>在Javascript提供的四种循环类型中，只有一种循环比其他循环明显要慢，那就是for-in循环。由于每次迭代操作要搜索实例或者原型的属性，for-in循环每次迭代都要付出更多开销，所以比其他循环慢一些。因此推荐的做法如下：除非你需要对数目不详的独享属性进行操作，否则避免使用for-in循环。如果迭代遍历一个有限的，已知的属性列表，使用其他循环类型更快，可以用下面的模式</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var props = [&quot;prop1&quot;, &quot;prop2&quot;],</span><br><span class="line">i = 0;</span><br><span class="line">while (i &lt; props.length)&#123;</span><br><span class="line">    process(object[props[i]]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个的代码创建了一个由成员和属性名构成的队列。while循环用于遍历这几个属性并处理对应的对象成员，而不是遍历对象的每个属性。此代码只关注感兴趣的属性，节约了循环时间。</p>
-<h5 id="减少迭代次数"><a href="#减少迭代次数" class="headerlink" title="减少迭代次数"></a>减少迭代次数</h5><p>每次运行循环体都会产生很小的性能开销，也会增加总的运行时间。减少循环的迭代次数可获得显著的性能提升。最广为人知的限制循环迭代次数的模式称作“达夫设备”</p>
+<h3 id="减少迭代次数"><a href="#减少迭代次数" class="headerlink" title="减少迭代次数"></a>减少迭代次数</h3><p>每次运行循环体都会产生很小的性能开销，也会增加总的运行时间。减少循环的迭代次数可获得显著的性能提升。最广为人知的限制循环迭代次数的模式称作“达夫设备”</p>
 <p>达夫设备是一个循环体展开技术，在一次迭代中实际上执行了多次迭代操作。一个典型的实现如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//credit: Jeff Greenberg</span><br><span class="line">var iterations = Math.floor(items.length / 8),</span><br><span class="line">startAt = items.length % 8,</span><br><span class="line">i = 0;</span><br><span class="line">do &#123;</span><br><span class="line">    switch(startAt)&#123;</span><br><span class="line">    case 0: process(items[i++]);</span><br><span class="line">    case 7: process(items[i++]);</span><br><span class="line">    case 6: process(items[i++]);</span><br><span class="line">    case 5: process(items[i++]);</span><br><span class="line">    case 4: process(items[i++]);</span><br><span class="line">    case 3: process(items[i++]);</span><br><span class="line">    case 2: process(items[i++]);</span><br><span class="line">    case 1: process(items[i++]);</span><br><span class="line">    &#125;</span><br><span class="line">    startAt = 0;</span><br><span class="line">&#125; while (--iterations);</span><br></pre></td></tr></table></figure>
 <p>大幅设备的基本理念是：每次循环中最多可以调用8次process()函数。这个算法的一个稍快的版本取消了switch表达式，将余数处理和主循环分开：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//credit: Jeff Greenberg</span><br><span class="line">var i = items.length % 8;</span><br><span class="line">while(i)&#123;</span><br><span class="line">    process(items[i--]);</span><br><span class="line">&#125;</span><br><span class="line">i = Math.floor(items.length / 8);</span><br><span class="line">while(i)&#123;</span><br><span class="line">    process(items[i--]);</span><br><span class="line">    process(items[i--]);</span><br><span class="line">    process(items[i--]);</span><br><span class="line">    process(items[i--]);</span><br><span class="line">    process(items[i--]);</span><br><span class="line">    process(items[i--]);</span><br><span class="line">    process(items[i--]);</span><br><span class="line">    process(items[i--]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>此代码使用两个循环替代了之前的一个，但是去掉了循环体的switch表达式，速度更快。</p>
 <p>我之前不了解达夫设备的时候去找过相关博客看过大幅设备的性能优化，结果貌似大部分情况下，在循环次数不是特别特别大的时候，普通的循环性能要优于达夫循环。而当循环次数大到一个零界点后，达夫设备的性能远优于普通的循环。</p>
-<h2 id="五、字符串和正则表达式"><a href="#五、字符串和正则表达式" class="headerlink" title="五、字符串和正则表达式"></a>五、字符串和正则表达式</h2><h4 id="字符串连接"><a href="#字符串连接" class="headerlink" title="字符串连接"></a>字符串连接</h4><p>字符串连接表现出惊人的性能紧张，通常一个任务通过一个循环，向字符串末尾不断地添加内容，来创建一个字符串，但此类处理在一些浏览器上表现很糟糕。</p>
+<p><br></p>
+<h2 id="五、字符串和正则表达式"><a href="#五、字符串和正则表达式" class="headerlink" title="五、字符串和正则表达式"></a>五、字符串和正则表达式</h2><h3 id="字符串连接"><a href="#字符串连接" class="headerlink" title="字符串连接"></a>字符串连接</h3><p>字符串连接表现出惊人的性能紧张，通常一个任务通过一个循环，向字符串末尾不断地添加内容，来创建一个字符串，但此类处理在一些浏览器上表现很糟糕。</p>
 <p>我们来看一下常规的合并字符串方法</p>
-<p><img src="/2018/08/16/javascriptHP3/JAVascriptHP3/1.PNG" alt="image"></p>
-<h5 id="和-操作符"><a href="#和-操作符" class="headerlink" title="+和+=操作符"></a>+和+=操作符</h5><p>这两个操作符提供了连接字符串最简单的方法。首先，看一个例子。这是连接字符串的常用方法：</p>
+<p><img src="/2018/08/16/javascriptHP3/1.PNG" alt="image"></p>
+<h3 id="和-操作符"><a href="#和-操作符" class="headerlink" title="+和+=操作符"></a>+和+=操作符</h3><p>这两个操作符提供了连接字符串最简单的方法。首先，看一个例子。这是连接字符串的常用方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str += &quot;one&quot; + &quot;two&quot;;</span><br></pre></td></tr></table></figure>
 <p>此代码执行时，发生四个步骤：</p>
 <ol>
-<li><h6 id="内存中创建了一个临时字符串"><a href="#内存中创建了一个临时字符串" class="headerlink" title="内存中创建了一个临时字符串"></a>内存中创建了一个临时字符串</h6></li>
-<li><h6 id="临时字符串的值被赋予“onetwo”"><a href="#临时字符串的值被赋予“onetwo”" class="headerlink" title="临时字符串的值被赋予“onetwo”"></a>临时字符串的值被赋予“onetwo”</h6></li>
-<li><h6 id="临时字符串与str的值进行连接"><a href="#临时字符串与str的值进行连接" class="headerlink" title="临时字符串与str的值进行连接"></a>临时字符串与str的值进行连接</h6></li>
-<li><h6 id="结果赋予str"><a href="#结果赋予str" class="headerlink" title="结果赋予str"></a>结果赋予str</h6></li>
+<li><h5 id="内存中创建了一个临时字符串"><a href="#内存中创建了一个临时字符串" class="headerlink" title="内存中创建了一个临时字符串"></a>内存中创建了一个临时字符串</h5></li>
+<li><h5 id="临时字符串的值被赋予“onetwo”"><a href="#临时字符串的值被赋予“onetwo”" class="headerlink" title="临时字符串的值被赋予“onetwo”"></a>临时字符串的值被赋予“onetwo”</h5></li>
+<li><h5 id="临时字符串与str的值进行连接"><a href="#临时字符串与str的值进行连接" class="headerlink" title="临时字符串与str的值进行连接"></a>临时字符串与str的值进行连接</h5></li>
+<li><h5 id="结果赋予str"><a href="#结果赋予str" class="headerlink" title="结果赋予str"></a>结果赋予str</h5></li>
 </ol>
 <p>以上基本就是浏览器完成这一任务的过程。</p>
 <p>下面的代码通过两个离散表达式直接将内容附加在str上避免了临时字符串(上面列表中的第1步和第2步)。再大多数浏览器上这样可以加速10%-40%</p>
@@ -245,24 +249,24 @@
 <p>实际上可以用一行代码就实现这样的性能提升：如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str = str + &quot;one&quot; + &quot;two&quot;;</span><br><span class="line">// equivalent to str = ((str + &quot;one&quot;) + &quot;two&quot;)</span><br></pre></td></tr></table></figure>
 <p>这就避免了使用临时字符串，因为赋值表达式开头以str为基础，一次追加一个字符串，从左至右依次连接。如果改变连接顺序（例如，str = “one” + str + “two”），你会失去这种优化。这和浏览器合并字符串时分配内存的方法有关。除了IE外，浏览器尝试扩展表达式左端字符串的内存，然后简单地将第二个字符串拷贝到它的尾部。如果在一个循环中，基本字符串位于最左端，就可以避免多次复制一个越来越大的基本字符串。</p>
-<p><img src="/2018/08/16/javascriptHP3/JAVascriptHP3/2.PNG" alt="image"></p>
+<p><img src="/2018/08/16/javascriptHP3/2.PNG" alt="image"></p>
 <p>由上图可以知道连接字符串时的内存使用情况：s1复制到s2的尾部形成s3；基本字符串s2没有被复制。</p>
 <p>上面的讨论的内容不适用于IE，因为IE连接字符串的机制不同，在IE中连接字符串记录下构成新字符串的各部分字符串的引用，在最后时刻，各部分字符串才被逐个拷贝到一个新的“真正的”字符串中，然后取代之前的字符串引用，并非每次使用都发生合并操作。</p>
-<h5 id="Firefox和编译期合并"><a href="#Firefox和编译期合并" class="headerlink" title="Firefox和编译期合并"></a>Firefox和编译期合并</h5><p>在赋值表达式中所有字符串连接都属于编译期常量，Firefox自动地在编译过程中合并它们。通过下面的方法可以看到这一过程：</p>
+<h3 id="Firefox和编译期合并"><a href="#Firefox和编译期合并" class="headerlink" title="Firefox和编译期合并"></a>Firefox和编译期合并</h3><p>在赋值表达式中所有字符串连接都属于编译期常量，Firefox自动地在编译过程中合并它们。通过下面的方法可以看到这一过程：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function foldingDemo() &#123;</span><br><span class="line">    var str = &quot;compile&quot; + &quot;time&quot; + &quot;folding&quot;;</span><br><span class="line">    str += &quot;this&quot; + &quot;works&quot; + &quot;too&quot;;</span><br><span class="line">    str = str + &quot;but&quot; + &quot;not&quot; + &quot;this&quot;;</span><br><span class="line">&#125;</span><br><span class="line">alert(foldingDemo.toString());</span><br><span class="line"></span><br><span class="line">// In Firefox, you&apos;ll see this:</span><br><span class="line">// function foldingDemo() &#123;</span><br><span class="line">// var str = &quot;compiletimefolding&quot;;</span><br><span class="line">// str += &quot;thisworkstoo&quot;;</span><br><span class="line">// str = str + &quot;but&quot; + &quot;not&quot; + &quot;this&quot;;</span><br><span class="line">// &#125;</span><br></pre></td></tr></table></figure>
 <p>当字符串时这样合并在一起的时候，由于运行时没有中间字符串，所以连接它们的时间和内存可以减少到零。这种功能非常了不起，但它并不经常起作用，因为通常从运行期数据创建字符串而不是从编译期常量。</p>
-<h5 id="数组联结"><a href="#数组联结" class="headerlink" title="数组联结"></a>数组联结</h5><p>Array.prototype.join方法将数组的所有元素合并成一个字符串，并在每个元素之间插入一个分隔符字符串。如果传递一个空字符串作为分隔符，你可以简单地将数组的所有元素连接起来。在大多数浏览器上，数组联结比连接字符串的其他方法更慢，但是事实上在IE7和更早的浏览器上它是连接大量字符串的唯一高效途径。</p>
+<h3 id="数组联结"><a href="#数组联结" class="headerlink" title="数组联结"></a>数组联结</h3><p>Array.prototype.join方法将数组的所有元素合并成一个字符串，并在每个元素之间插入一个分隔符字符串。如果传递一个空字符串作为分隔符，你可以简单地将数组的所有元素连接起来。在大多数浏览器上，数组联结比连接字符串的其他方法更慢，但是事实上在IE7和更早的浏览器上它是连接大量字符串的唯一高效途径。</p>
 <p>下列代码演示了可用数组联结解决性能问题：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;I&apos;m a thirty-five character string.&quot;,</span><br><span class="line">newStr = &quot;&quot;,</span><br><span class="line">appends = 5000;</span><br><span class="line">while (appends--) &#123;</span><br><span class="line">    newStr += str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>此代码连接5000个长度为35的字符串。下图显示出在IE7中实行此测试所需的时间，从500连接开始，然后逐步增加连接数量。</p>
-<p><img src="/2018/08/16/javascriptHP3/JAVascriptHP3/3.PNG" alt="image"></p>
+<p><img src="/2018/08/16/javascriptHP3/3.PNG" alt="image"></p>
 <p>IE7低效的连接算法要求浏览器在循环过程中反复地为越来越大的字符串拷贝和分配内存。结果以平方关系递增的运行时间和内存消耗。好消息是其他现代浏览器（高阔IE8）在这个测试表现良好，不会呈现平方关系的复杂性递增。</p>
 <p>现在考虑下面的测试，它使用数组联结生成同样的字符串：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;I&apos;m a thirty-five character string.&quot;,</span><br><span class="line">strs = [],</span><br><span class="line">newStr,</span><br><span class="line">appends = 5000;</span><br><span class="line">while (appends--) &#123;</span><br><span class="line">    strs[strs.length] = str;</span><br><span class="line">&#125;</span><br><span class="line">newStr = strs.join(&quot;&quot;);</span><br></pre></td></tr></table></figure>
 <p>下图是在IE7上进行此测试所用的时间</p>
-<p><img src="/2018/08/16/javascriptHP3/JAVascriptHP3/4.PNG" alt="image"></p>
+<p><img src="/2018/08/16/javascriptHP3/4.PNG" alt="image"></p>
 <p>这一难以置信的改进结果是因为避免了重复的内存分配和拷贝越来越大的字符串。当联结一个数组时，浏览器分配足够大的内存用于存放整个字符串，也不会超过一次地拷贝最终字符串的同一部分</p>
-<h5 id="String-prototype-concat"><a href="#String-prototype-concat" class="headerlink" title="String.prototype.concat"></a>String.prototype.concat</h5><p>原声字符串连接函数接受任意数目的参数，并将每一个参数都追加在调用函数的字符串上。这是连接字符串最灵活的方法。因为你可以用它来追加一个字符串，或者一次追加几个字符串，或者一个完整的字符串数组。</p>
+<h3 id="String-prototype-concat"><a href="#String-prototype-concat" class="headerlink" title="String.prototype.concat"></a>String.prototype.concat</h3><p>原声字符串连接函数接受任意数目的参数，并将每一个参数都追加在调用函数的字符串上。这是连接字符串最灵活的方法。因为你可以用它来追加一个字符串，或者一次追加几个字符串，或者一个完整的字符串数组。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// append one string</span><br><span class="line">str = str.concat(s1);</span><br><span class="line">// append three strings</span><br><span class="line">str = str.concat(s1, s2, s3);</span><br><span class="line">// append every string in an array by using the array</span><br><span class="line">// as the list of arguments</span><br><span class="line">str = String.prototype.concat.apply(str, array);</span><br></pre></td></tr></table></figure>
 <p>不幸的是，大多数情况下concat比简单的+和+=慢一些，而且在一些浏览器上大幅变慢。此外，虽然使用concat合并数组中的所有字符串看起来和前面讨论的数组联结差不多，但它通常更慢一些。</p>
 <h3 id="正则表达式优化"><a href="#正则表达式优化" class="headerlink" title="正则表达式优化"></a>正则表达式优化</h3><p>这个很多而且比较难，我自己理解的也没那么深就不在这里写了</p>
