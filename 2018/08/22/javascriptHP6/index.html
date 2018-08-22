@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="八、编程实践避免二次评估JavaScript和很多脚本语言一样，允许在程序中获取一个包含代码的字符串然后运行它。有四种标准方法可以实现：
+
+eval()
+Function()构造器
+setTimeout()
+setInterval()
+
+每个函数允许你传入一串JS代码然后运行它：
+123456789"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="ldq"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="《高性能Javascript》阅读笔记（六）"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="八、编程实践避免二次评估JavaScript和很多脚本语言一样，允许在程序中获取一个包含代码的字符串然后运行它。有四种标准方法可以实现：
+
+eval()
+Function()构造器
+setTimeout()
+setInterval()
+
+每个函数允许你传入一串JS代码然后运行它：
+123456789"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="腊肠的博客"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.com/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.com/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>《高性能Javascript》阅读笔记（六） - 腊肠的博客</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">首页</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/ldqUndefined">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>《高性能Javascript》阅读笔记（六）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-08-22
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Javascript/">#Javascript</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="八、编程实践"><a href="#八、编程实践" class="headerlink" title="八、编程实践"></a>八、编程实践</h2><h3 id="避免二次评估"><a href="#避免二次评估" class="headerlink" title="避免二次评估"></a>避免二次评估</h3><p>JavaScript和很多脚本语言一样，允许在程序中获取一个包含代码的字符串然后运行它。有四种标准方法可以实现：</p>
+<ul>
+<li>eval()</li>
+<li>Function()构造器</li>
+<li>setTimeout()</li>
+<li>setInterval()</li>
+</ul>
+<p>每个函数允许你传入一串JS代码然后运行它：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var num1 = 5,</span><br><span class="line">num2 = 6,</span><br><span class="line">//eval_r() evaluating a string of code</span><br><span class="line">result = eval_r(&quot;num1 + num2&quot;),</span><br><span class="line">//Function() evaluating strings of code</span><br><span class="line">sum = new Function(&quot;arg1&quot;, &quot;arg2&quot;, &quot;return arg1 + arg2&quot;);</span><br><span class="line">//setTimeout() evaluating a string of code</span><br><span class="line">setTimeout(&quot;sum = num1 + num2&quot;, 100);</span><br><span class="line">//setInterval() evaluating a string of code</span><br><span class="line">setInterval(&quot;sum = num1 + num2&quot;, 100);</span><br></pre></td></tr></table></figure>
+<p>当在JS代码中执行另一段JS代码时，要付出二次评估的代价。这个代码首先被评估为正常代码，然后在执行过程中，运行字符串中的代码时发生另一次评估。二次评估是一项昂贵的操作，与直接包含相应代码相比将占用更长时间。</p>
+<p>作为比较，不同浏览器上访问一个数组项所占用的时间各有不同，但如果使用eval()访问其结果将大相径庭：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//faster</span><br><span class="line">var item = array[0];</span><br><span class="line">//slower</span><br><span class="line">var item = eval_r(&quot;array[0]&quot;);</span><br></pre></td></tr></table></figure>
+<p>如果使用eval()代替直接访问10000个数组项，在不同浏览器上的差异非常巨大，下图显示了这些操作所使用的时间</p>
+<p><img src="/2018/08/22/javascriptHP6/1.PNG" alt="image"></p>
+<p>访问数组项时间上的巨大差异，是因为每次调用eval()时都要创建一个新的解释/编译实例。同样的过程也发生在Function(),setTimeout()和setInterval()上，自动使代码执行速度变慢。</p>
+<p>大多数情况下，没必要使用eval()和Function()。如果可能的话，尽量避免使用它们。至于另外两个函数setTImeout()和setInterval()，建议第一个参数传入一个函数而不是一个字符串，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;</span><br><span class="line">sum = num1 + num2;</span><br><span class="line">&#125;, 100);</span><br><span class="line">setInterval(function()&#123;</span><br><span class="line">sum = num1</span><br></pre></td></tr></table></figure>
+<p>++避免二次评估是实现最优化的JavaScript运行时性能的关键++</p>
+<h3 id="使用对象-数组直接量"><a href="#使用对象-数组直接量" class="headerlink" title="使用对象/数组直接量"></a>使用对象/数组直接量</h3><p>在JavaScript中有多种方法创建对象和数组，但没有比创建对象和数组直接量更快的了。如果不使用直接量，典型的对象创建和复制是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//create an object</span><br><span class="line">var myObject = new Object();</span><br><span class="line">myObject.name = &quot;Nicholas&quot;;</span><br><span class="line">myObject.count = 50;</span><br><span class="line">myObject.flag = true;</span><br><span class="line">myObject.pointer = null;</span><br><span class="line">//create an array</span><br><span class="line">var myArray = new Array();</span><br><span class="line">myArray[0] = &quot;Nicholas&quot;;</span><br><span class="line">myArray[1] = 50;</span><br><span class="line">myArray[2] = true;</span><br><span class="line">myArray[3] = null;</span><br></pre></td></tr></table></figure>
+<p>虽然在技术上这种做法没什么不对的，直接量复制很快。作为一个额外的好处，直接量在代码中占用较少空间，所以文件尺寸可以更小。上面代码可用直接量重写为下面的样式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//create an object</span><br><span class="line">var myObject = &#123;</span><br><span class="line">name: &quot;Nicholas&quot;,</span><br><span class="line">count: 50,</span><br><span class="line">flag: true,</span><br><span class="line">pointer: null</span><br><span class="line">&#125;;</span><br><span class="line">//create an array</span><br><span class="line">var myArray = [&quot;Nicholas&quot;, 50, true, null];</span><br></pre></td></tr></table></figure>
+<h3 id="不要重复工作"><a href="#不要重复工作" class="headerlink" title="不要重复工作"></a>不要重复工作</h3><p>计算机科学领域最重要的性能优化技术之一是避免工作。</p>
+<p>最常见的重复工作类型是浏览器检测。大量代码依赖于浏览器的功能。以事件句柄的添加和删除为例，典型的跨浏览器代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function addHandler(target, eventType, handler)&#123;</span><br><span class="line">    if (target.addEventListener)&#123; //DOM2 Events</span><br><span class="line">        target.addEventListener(eventType, handler, false);</span><br><span class="line">    &#125; else &#123; //IE</span><br><span class="line">        target.attachEvent(&quot;on&quot; + eventType, handler);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function removeHandler(target, eventType, handler)&#123;</span><br><span class="line">    if (target.removeEventListener)&#123; //DOM2 Events</span><br><span class="line">        target.removeEventListener(eventType, handler, false);</span><br><span class="line">    &#125; else &#123; //IE</span><br><span class="line">        target.detachEvent(&quot;on&quot; + eventType, handler);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个代码通过测试addEventListener()和removeEventListener()检查DOM级别2的事件支持情况，它能够被IE之外的所有现有浏览器所支持。如果这些方法不存在于target中，那么久认为当前浏览器使IE，并使用IE特有的方法。</p>
+<p>乍一看，这些函数为了实现它们的目的已经足够优化。隐藏的性能问题在于每次函数调用时都执行重复工作。每次都进行同样的检查看某种方法是否存在。如果你假设target唯一的值就是DOM对象，而且用户不可能在页面加载时改变浏览器，那么这种判断就是重复的。如果addHandler()一上来就调用addEventListener()那么每个后续调用都要出现这句代码。在每次调用中重复同样的工作是一种浪费，有多种方法避免这一点。</p>
+<h4 id="延迟加载"><a href="#延迟加载" class="headerlink" title="延迟加载"></a>延迟加载</h4><p>第一种消除函数中重复工作的方法称作延迟加载。延迟加载意味着在信息被使用之前不做任何工作。在前面例子中，不需要判断使用哪种方法附加或分离时间句柄，直到调用此函数。使用延迟加载的函数如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">function addHandler(target, eventType, handler)&#123;</span><br><span class="line">    //overwrite the existing function</span><br><span class="line">    if (target.addEventListener)&#123; //DOM2 Events</span><br><span class="line">        addHandler = function(target, eventType, handler)&#123;</span><br><span class="line">            target.addEventListener(eventType, handler, false);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125; else &#123; //IE</span><br><span class="line">        addHandler = function(target, eventType, handler)&#123;</span><br><span class="line">            target.attachEvent(&quot;on&quot; + eventType, handler);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    //call the new function</span><br><span class="line">    addHandler(target, eventType, handler);</span><br><span class="line">&#125;</span><br><span class="line">function removeHandler(target, eventType, handler)&#123;</span><br><span class="line">    //overwrite the existing function</span><br><span class="line">    if (target.removeEventListener)&#123; //DOM2 Events</span><br><span class="line">        removeHandler = function(target, eventType, handler)&#123;</span><br><span class="line">            target.addEventListener(eventType, handler, false);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125; else &#123; //IE</span><br><span class="line">        removeHandler = function(target, eventType, handler)&#123;</span><br><span class="line">            target.detachEvent(&quot;on&quot; + eventType, handler);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    //call the new function</span><br><span class="line">    removeHandler(target, eventType, handler);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这两个函数依照延迟加载模式实现。这两个方法第一次被调用时，检查一次病决定使用哪种方法附加或分离事件句柄。然后，原始函数就被包含适当操作的新函数覆盖了 。最后调用新函数并将新原始参数传给它。以后再调用addHandler()或者removeHandler()时不会再次检测，因为检测代码已经被新函数覆盖了。</p>
+<p>++调用一个延迟加载函数总是在第一次使用较长时间，因为它必须运行检测然后调用另一个函数以完成任务。但是，后续调用同一函数将快很多，因为不再执行检测逻辑了。延迟加载适用于函数不会在页面上立即被用到的场合。++</p>
+<h4 id="条件预加载"><a href="#条件预加载" class="headerlink" title="条件预加载"></a>条件预加载</h4><p>除延迟加载之外的另一种方法称为条件预加载，它在脚本加载之前进行检查，而不等待函数调用。这样做检测仍只是一次，但在此过程中来的更早。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var addHandler = document.body.addEventListener ?</span><br><span class="line">    function(target, eventType, handler)&#123;</span><br><span class="line">        target.addEventListener(eventType, handler, false);</span><br><span class="line">    &#125;:</span><br><span class="line">    function(target, eventType, handler)&#123;</span><br><span class="line">        target.attachEvent(&quot;on&quot; + eventType, handler);</span><br><span class="line">    &#125;;</span><br><span class="line">var removeHandler = document.body.removeEventListener ?</span><br><span class="line">    function(target, eventType, handler)&#123;</span><br><span class="line">        target.removeEventListener(eventType, handler, false);</span><br><span class="line">    &#125;:</span><br><span class="line">    function(target, eventType, handler)&#123;</span><br><span class="line">        target.detachEvent(&quot;on&quot; + eventType, handler);</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<p>这个例子检查addEventListener()和removeEventListener()是否存在，然后根据此信息指定最合适的函数。三元操作符返回DOM级别2的函数。如果它们存在的话，否则返回IE特有的函数。然后，调用addHandler()和removeHandler()同样很快，虽然检测功能提前了。</p>
+<p>++条件预加载确保所有函数调用时间相同。其代价是在脚本加载时进行检测。预加载适用于一个函数马上就会被用到，而且在整个生命周期中经常使用的场合。++</p>
+<h3 id="使用速度快的部分"><a href="#使用速度快的部分" class="headerlink" title="使用速度快的部分"></a>使用速度快的部分</h3><p>虽然JavaScript经常被指责缓慢，然而此语言的某些部分具有难以执行的快速，这是因为JS引擎由低级语言构建。虽然JS速度慢很荣誉归咎于引擎，然而引擎通常是处理过程中最快的部分，实际上速度慢的时代码。引擎的某些部分比其他部分快很多，因为它允许你绕过速度慢的部分。</p>
+<h4 id="位操作运算符"><a href="#位操作运算符" class="headerlink" title="位操作运算符"></a>位操作运算符</h4><p>位操作运算符运行速度很快。JS中的数字以64位格式存储，在位运算中，数字被转换为有符号32位格式。每种操作均直接操作在这个32位数上实现结果。尽管需要转换，这个过程和JS中其他数学和布尔运算相比还是非常快的。</p>
+<p>JS可以很容易将数字转为字符串形式的二进制表达式，通过toString()方法并传入数字2（做参数），如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var num1 = 25,</span><br><span class="line">num2 = 3;</span><br><span class="line">alert(num1.toString(2)); //&quot;11001&quot;</span><br><span class="line">alert(num2.toString(2)); // &quot;11&quot;</span><br></pre></td></tr></table></figure>
+<p>这个表达式隐藏了数字高位的0.</p>
+<p>JS中有四种逻辑操作符：位与，位或，位异或，位非。这些操作都很基础就不一一演示了。</p>
+<p>有很多方法可以用位运算符提高JS的速度。首先可以用位运算符替代纯数学操作。如通常采用对2取膜运算实现表行颜色交替显示，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for (var i=0, len=rows.length; i &lt; len; i++)&#123;</span><br><span class="line">    if (i % 2) &#123;</span><br><span class="line">        className = &quot;even&quot;;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        className = &quot;odd&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    //apply class</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码可以重写如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for (var i=0, len=rows.length; i &lt; len; i++)&#123;</span><br><span class="line">    if (i &amp; 1) &#123;</span><br><span class="line">        className = &quot;odd&quot;;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        className = &quot;even&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    //apply class</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>虽然代码改动不大，但位与版本比原始版本快乐50%（取决于浏览器）</p>
+<h4 id="原生代码"><a href="#原生代码" class="headerlink" title="原生代码"></a>原生代码</h4><p>无论怎么优化JS代码，它永远也不会比JS引擎逼供的原生方法更快。其原因十分简单：JS的原生部分—-在你写代码之前他们就已经存在于浏览器之中了—–都是用低级语言写的，诸如C++。这意味着这些方法被编译成机器码作为浏览器的一部分，不像自己写的JS代码那样有那么多限制。</p>
+<p>经验不足的JS开发者经常犯的一个错误时在代码中进行复杂的数学运算，而没有使用内置Math对象中那些性能更好的版本。Math对象包含专门设计的 属性和方法，使数学运算更容易，下面是一些数学常数：</p>
+<p><img src="/2018/08/22/javascriptHP6/2.PNG" alt="image"></p>
+<p>这里每个数值都是计算好的，所以不需要自己来计算它们，还有一些数学运算方法：</p>
+<p><img src="/2018/08/22/javascriptHP6/3.PNG" alt="image"></p>
+<p>使用这些函数比同样功能的JS代码更快。所以当进行复杂的数学计算时，首先查看Math对象。</p>
+<p>还有一个例子是选择器API，可以像使用CSS选择器那样查询DOM文档。CSS查询被JS原生实现并通过JQuery这个库推广开来。JQuery引擎被认为是最快的CSS查询引擎，但它仍比原生方法慢。原生的querySelector()盒querySelectorAll()方法完成它们的任务时，平均只要基于JS的CSS查询10%的时间。大多数JS库已经使用原生函数以提高它们的整体性能。</p>
+<h2 id="九、创建并部署高性能JavaScript应用"><a href="#九、创建并部署高性能JavaScript应用" class="headerlink" title="九、创建并部署高性能JavaScript应用"></a>九、创建并部署高性能JavaScript应用</h2><p>没部署过，暂时不太了解。</p>
+<h2 id="十、工具"><a href="#十、工具" class="headerlink" title="十、工具"></a>十、工具</h2><p>似乎有点过时了，毕竟这本书也挺久的了</p>
+<h4 id="到这里，这本书也看完了并总结完了。总的来说还是一本很不错的书，里面讲的很多优化案例都是很经典的，挺多貌似都在面试题中出现过，是JS入门后值得看的一本好书。"><a href="#到这里，这本书也看完了并总结完了。总的来说还是一本很不错的书，里面讲的很多优化案例都是很经典的，挺多貌似都在面试题中出现过，是JS入门后值得看的一本好书。" class="headerlink" title="到这里，这本书也看完了并总结完了。总的来说还是一本很不错的书，里面讲的很多优化案例都是很经典的，挺多貌似都在面试题中出现过，是JS入门后值得看的一本好书。"></a>到这里，这本书也看完了并总结完了。总的来说还是一本很不错的书，里面讲的很多优化案例都是很经典的，挺多貌似都在面试题中出现过，是JS入门后值得看的一本好书。</h4>
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ldqUndefined" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2018 ldq<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

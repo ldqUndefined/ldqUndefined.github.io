@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="七、AjaxAjax是高性能js的基石，可以通过延迟下载大量资源使页面加载更快。它通过在客户端和服务器之间异步传送数据，避免页面集体加载。它还用于在一次http请求中获取整个页面的资源。通过选择正确的传输技术和最有效率的数据，可以显示改善用户和网站之间的互动。
+数据传输Ajax可以不重载页面和服务器"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="ldq"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="《高性能Javascript》阅读笔记（五）"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="七、AjaxAjax是高性能js的基石，可以通过延迟下载大量资源使页面加载更快。它通过在客户端和服务器之间异步传送数据，避免页面集体加载。它还用于在一次http请求中获取整个页面的资源。通过选择正确的传输技术和最有效率的数据，可以显示改善用户和网站之间的互动。
+数据传输Ajax可以不重载页面和服务器"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="腊肠的博客"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.com/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.com/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>《高性能Javascript》阅读笔记（五） - 腊肠的博客</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">首页</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/ldqUndefined">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>《高性能Javascript》阅读笔记（五）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-08-22
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Javascript/">#Javascript</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="七、Ajax"><a href="#七、Ajax" class="headerlink" title="七、Ajax"></a>七、Ajax</h2><p>Ajax是高性能js的基石，可以通过延迟下载大量资源使页面加载更快。它通过在客户端和服务器之间异步传送数据，避免页面集体加载。它还用于在一次http请求中获取整个页面的资源。通过选择正确的传输技术和最有效率的数据，可以显示改善用户和网站之间的互动。</p>
+<h3 id="数据传输"><a href="#数据传输" class="headerlink" title="数据传输"></a>数据传输</h3><p>Ajax可以不重载页面和服务器通讯，可以从服务器获得或者发送给服务器。接下来讨论多种不同方法构造这种通讯通道，每种方法都有自己优势和限制，并讨论性能。</p>
+<h4 id="请求数据"><a href="#请求数据" class="headerlink" title="请求数据"></a>请求数据</h4><p>有五种常用技术向服务器请求数据：</p>
+<ul>
+<li>XMLHttpRequest(XHR)</li>
+<li>Dynamic script tag insertion 动态脚本标签插入</li>
+<li>iframes</li>
+<li>Comet</li>
+<li>Multipart XHR 多部分XHR</li>
+</ul>
+<p>常用的时XHR，动态脚本标签插入和多部分XHR。comet和iframe往往是极限情况，这里不讨论</p>
+<h5 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h5><p>XHR是现在最常用的用来异步手法数据的方法，可以精细控制发送去请求和数据接收。可以向请求报文中添加任意头信息和参数，并读取从服务器返回的头信息，以及相应文本自身。下面是实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var url = &apos;/data.php&apos;;</span><br><span class="line">var params = [</span><br><span class="line">    &apos;id=934875&apos;,</span><br><span class="line">    &apos;limit=20&apos;</span><br><span class="line">];</span><br><span class="line">var req = new XMLHttpRequest();</span><br><span class="line">req.onreadystatechange = function() &#123;</span><br><span class="line">if (req.readyState === 4) &#123;</span><br><span class="line">    var responseHeaders = req.getAllResponseHeaders(); // Get the response headers.</span><br><span class="line">    var data = req.responseText; // Get the data.</span><br><span class="line">    // Process the data here...</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">req.open(&apos;GET&apos;, url + &apos;?&apos; + params.join(&apos;&amp;&apos;), true);</span><br><span class="line">req.setRequestHeader(&apos;X-Requested-With&apos;, &apos;XMLHttpRequest&apos;); // Set a request header.</span><br><span class="line">req.send(null); // Send the request.</span><br></pre></td></tr></table></figure>
+<p>示例显示了如何从URL情趣数据，使用参数，和如何读取响应报文和头信息。readyState等于4表示整个响应报文已经接受完并可用于操作。</p>
+<p>readyState等于3表示正在和服务器交互，相应报文还在传输之中。这就是所谓的“流”，它是提高数据请求性能的强大工具：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">req.onreadystatechange = function() &#123;</span><br><span class="line">    if (req.readyState === 3) &#123; // Some, but not all, data has been received.</span><br><span class="line">        var dataSoFar = req.responseText;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    else if (req.readyState === 4) &#123; // All data has been received.</span><br><span class="line">        var data = req.responseText;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于XHR提供了高级别控制，所以浏览器在上面增加了一些限制。不能使用XHR从当前运行代码域之外请求数据，而且老版本的IE也不提供readyState 3。它不支持流。从请求返回的数据像字符串或者XML对象一样对待，这意味着处理大量数据将相当缓慢。即时有这些缺点，XHR仍然是最常用的请求数据技术，也是最强大的。</p>
+<h5 id="使用XHR时，应使用POST还是GET"><a href="#使用XHR时，应使用POST还是GET" class="headerlink" title="使用XHR时，应使用POST还是GET"></a>使用XHR时，应使用POST还是GET</h5><p>使用XHR时可以用POST或GET，如果请求不改变服务器状态指示取数据，则使用GET。GET请求被缓冲起来，如果多次提取相同的数据可提高性能。只有当URL和参数长度超过了2048个字符时采用POST提取数据，因为IE限制URL长度，过长将导致请求被截断。</p>
+<h4 id="动态脚本标签插入"><a href="#动态脚本标签插入" class="headerlink" title="动态脚本标签插入"></a>动态脚本标签插入</h4><p>该方法克服了XHR的最大限制：可跨域，是一种hack技术，而不是实例化一个专用对象。我们用JS创建一个新脚本标签，并将它的源属性设置为一个指向不同域的URL。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var scriptElement = document.createElement(&apos;script&apos;);</span><br><span class="line">scriptElement.src = &apos;http://any-domain.com/javascript/lib.js&apos;;</span><br><span class="line">document.getElementsByTagName_r(&apos;head&apos;)[0].appendChild(scriptElement);</span><br></pre></td></tr></table></figure>
+<p>动态脚本标签插入和XHR相比提供更少的控制。不能通过请求发送信息头。参数只能通过GET传递，不能用POST。不能设置请求的超时或重试，实际上也不知道它是否失败了。必须等待所有数据返回之后才可以访问它们。不能访问相应信息头或者像访问字符串那样访问整个响应报文。</p>
+<p><strong>非常重要的一点。</strong>因为响应报文被用作脚本标签的源码，必须是可执行的JS。不能使用裸XML或裸JSON，然和数据，无论什么格式，必须在回调函数之中被组装起来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var scriptElement = document.createElement(&apos;script&apos;);</span><br><span class="line">scriptElement.src = &apos;http://any-domain.com/javascript/lib.js&apos;;</span><br><span class="line">document.getElementsByTagName_r(&apos;head&apos;)[0].appendChild(scriptElement);</span><br><span class="line">function jsonCallback(jsonString) &#123;</span><br><span class="line">    var data = (&apos;(&apos; + jsonString + &apos;)&apos;);</span><br><span class="line">    // Process the data here...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个例子中，lib.js将调用jsonCallback函数组装数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jsonCallback(&#123; &quot;status&quot;: 1, &quot;colors&quot;: [ &quot;#fff&quot;, &quot;#000&quot;, &quot;#ff0000&quot; ] &#125;);</span><br></pre></td></tr></table></figure>
+<p>尽管有这些限制，这个技术仍然非常荀淑，它的相应结果是运行js，而不是作为字符串必须被进一步处理。正因如此，它可能是客户端上获取并解析数据最快的方法。</p>
+<p>请小心使用这种技术从你不能直接控制的服务器上请求数据。js没有权限或访问控制的概念，所以你的页面上任何使用动态标签插入的代码都可以完全控制整个页面。包括修改任何内容、将用户重定向到另一个站点，或跟踪他们在页面上的操作将数据发送给第三方。使用外部来源的代码时务必非常小心。</p>
+<h4 id="多部分XHR"><a href="#多部分XHR" class="headerlink" title="多部分XHR"></a>多部分XHR</h4><p>多部分XHR允许一个HTTP请求从服务器获取多个资源。它通过将资源（可以使CSS文件、HTML片段、js代码或base64编码的图片）打包成一个由特定分隔符界定的大字符串，从服务器端发送到客户端。JS代码处理这个厂字符串，根据它的媒体类型和其他“信息头”解析出每个资源。</p>
+<p>我们通过一个例子了解这个过程，首先发送一个请求向服务器索取几个图像资源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var req = new XMLHttpRequest();</span><br><span class="line">req.open(&apos;GET&apos;, &apos;rollup_images.php&apos;, true);</span><br><span class="line">req.onreadystatechange = function() &#123;</span><br><span class="line">    if (req.readyState == 4) &#123;</span><br><span class="line">        splitImages(req.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">req.send(null);</span><br></pre></td></tr></table></figure>
+<p>这是个很简单的请求，拿到数据后交给splitImages处理。下一步，服务器读取图片并将它们转成字符串：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$images = array(&apos;kitten.jpg&apos;, &apos;sunset.jpg&apos;, &apos;baby.jpg&apos;);</span><br><span class="line">foreach ($images as $image) &#123;</span><br><span class="line">    $image_fh = fopen($image, &apos;r&apos;);</span><br><span class="line">    $image_data = fread($image_fh, filesize($image));</span><br><span class="line">    fclose($image_fh);</span><br><span class="line">    $payloads[] = base64_encode($image_data);</span><br><span class="line">&#125;</span><br><span class="line">// Roll up those strings into one long string and output it.</span><br><span class="line">$newline = chr(1); // This character won&apos;t appear naturally in any base64 string.</span><br><span class="line">echo implode($newline, $payloads);</span><br></pre></td></tr></table></figure>
+<p>这段PHP代码读3个图片，并将它们装换成base64字符串。它们之间用一个简单的字符UNICODE的1连接起来然后返回给客户端。然后这个数据在客户端由splitImage函数处理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function splitImages(imageString) &#123;</span><br><span class="line">    var imageData = imageString.split(&quot;\u0001&quot;);</span><br><span class="line">    var imageElement;</span><br><span class="line">    for (var i = 0, len = imageData.length; i &lt; len; i++) &#123;</span><br><span class="line">        imageElement = document.createElement(&apos;img&apos;);</span><br><span class="line">        imageElement.src = &apos;data:image/jpeg;base64,&apos; + imageData[i];</span><br><span class="line">        document.getElementById(&apos;container&apos;).appendChild(imageElement);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个函数将拼接而成的字符串分解为3段。每段用于创建一个图像元素，然后将图像元素插入页面中。图像不是从base64转换成二进制，而是使用data:URL并制定image/jpeg媒体类型。</p>
+<p>最终结果是：再一次HTTP请求中向浏览器传入了三张图片。也可以穿20或100张，响应报文会更大，但也只是一次HTTP请求。它可以拓展到其他类型的资源。JS文件、CSS文件。HTML片段，许多类型的图片都可以合并成一次响应。任何数据类型都可以作为一个JS处理的字符串被发送。下面的函数将JS代码、CSS样式和图片转换为浏览器可用的资源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function handleImageData(data, mimeType) &#123;</span><br><span class="line">    var img = document.createElement(&apos;img&apos;);</span><br><span class="line">    img.src = &apos;data:&apos; + mimeType + &apos;;base64,&apos; + data;</span><br><span class="line">    return img;</span><br><span class="line">&#125;</span><br><span class="line">function handleCss(data) &#123;</span><br><span class="line">    var style = document.createElement(&apos;style&apos;);</span><br><span class="line">    style.type = &apos;text/css&apos;;</span><br><span class="line">    var node = document.createTextNode(data);</span><br><span class="line">    style.appendChild(node);</span><br><span class="line">    document.getElementsByTagName_r(&apos;head&apos;)[0].appendChild(style);</span><br><span class="line">&#125;</span><br><span class="line">function handleJavaScript(data) &#123;</span><br><span class="line">    (data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于MXHR响应报文越来越大，有必要在每个资源收到时立刻处理，而不是整个响应报文接受完成。这可以通过坚挺readyState 3实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var req = new XMLHttpRequest();</span><br><span class="line">var getLatestPacketInterval, lastLength = 0;</span><br><span class="line">req.open(&apos;GET&apos;, &apos;rollup_images.php&apos;, true);</span><br><span class="line">req.onreadystatechange = readyStateHandler;</span><br><span class="line">req.send(null);</span><br><span class="line">function readyStateHandler&#123;</span><br><span class="line">    if (req.readyState === 3 &amp;&amp; getLatestPacketInterval === null) &#123;</span><br><span class="line">        // Start polling.</span><br><span class="line">        getLatestPacketInterval = window.setInterval(function() &#123;</span><br><span class="line">            getLatestPacket();</span><br><span class="line">        &#125;, 15);</span><br><span class="line">    &#125;</span><br><span class="line">    if (req.readyState === 4) &#123;</span><br><span class="line">        // Stop polling.</span><br><span class="line">        clearInterval(getLatestPacketInterval);</span><br><span class="line">        // Get the last packet.</span><br><span class="line">        getLatestPacket();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function getLatestPacket() &#123;</span><br><span class="line">    var length = req.responseText.length;</span><br><span class="line">    var packet = req.responseText.substring(lastLength, length);</span><br><span class="line">    processPacket(packet);</span><br><span class="line">    lastLength = length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当readyState 3第一次发出时，启动了一个定时器。每个15ms检查一次响应报文中的新数据。数据片段被收集起来直到发现一个分隔符，然后一切都作为一个完整的资源处理。</p>
+<p>这个技术的缺点在于获得的资源不能被缓存，如果使用MXHR获取一个特定的CSS文件然后在下一个页面中正常加载它，它不再缓存中。因为整批资源使作为一个厂字符串传输的，然后由JS代码分割。由于没有办法用程序将文件放入浏览器缓存中，所以用这种方法获取的资源也无法存放在那里。另一个缺点是老版IE不支持readyState 3或data:URL。</p>
+<p>尽管有这些缺点，但某些情况下MXHR仍然显著提高了整体页面的性能:</p>
+<ul>
+<li>网页包含许多其他地方不会用到的资源（所以不用缓存），尤其是图片</li>
+<li>网站为每个页面使用了独一无二的打包的JS或CSS文件以减少HTTP请求，因为它们对每个页面来说是独一的，所以不需要从缓存中读取，除非重新载入特定页面。</li>
+<li>由于HTTP请求是Ajax中最极端的瓶颈之一，减少需求数量对整个页面性能有很大影响。尤其当你讲100个图片转换成一个MXHR请求时，结果也比逐个请求快了好几倍。</li>
+</ul>
+<h4 id="发送数据"><a href="#发送数据" class="headerlink" title="发送数据"></a>发送数据</h4><p>当只关心发数据不关心取数据时，由两种广泛应用的技术：XHR和灯标</p>
+<h5 id="XHR"><a href="#XHR" class="headerlink" title="XHR"></a>XHR</h5><p>当向服务器发数据量超过浏览器的最大URL长度时，用post发回数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var url = &apos;/data.php&apos;;</span><br><span class="line">var params = [</span><br><span class="line">    &apos;id=934875&apos;,</span><br><span class="line">    &apos;limit=20&apos;</span><br><span class="line">];</span><br><span class="line">var req = new XMLHttpRequest();</span><br><span class="line">req.onerror = function() &#123;</span><br><span class="line">    // Error.</span><br><span class="line">&#125;;</span><br><span class="line">req.onreadystatechange = function() &#123;</span><br><span class="line">    if (req.readyState == 4) &#123;</span><br><span class="line">        // Success.</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">req.open(&apos;POST&apos;, url, true);</span><br><span class="line">req.setRequestHeader(&apos;Content-Type&apos;, &apos;application/x-www-form-urlencoded&apos;);</span><br><span class="line">req.setRequestHeader(&apos;Content-Length&apos;, params.length);</span><br><span class="line">req.send(params.join(&apos;&amp;&apos;));</span><br></pre></td></tr></table></figure>
+<p>这个例子中如果失败了我们什么也不做，当用XHR捕获登录用户统计信息时这么做通常没什么问题。但如果是至关重要的数据，可以添加代码在失败时重试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function xhrPost(url, params, callback) &#123;</span><br><span class="line">    var req = new XMLHttpRequest();</span><br><span class="line">    req.onerror = function() &#123;</span><br><span class="line">        setTimeout(function() &#123;</span><br><span class="line">            xhrPost(url, params, callback);</span><br><span class="line">        &#125;, 1000);</span><br><span class="line">    &#125;;</span><br><span class="line">    req.onreadystatechange = function() &#123;</span><br><span class="line">        if (req.readyState == 4) &#123;</span><br><span class="line">            if (callback &amp;&amp; typeof callback === &apos;function&apos;) &#123;</span><br><span class="line">                callback();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    req.open(&apos;POST&apos;, url, true);</span><br><span class="line">    req.setRequestHeader(&apos;Content-Type&apos;, &apos;application/x-www-form-urlencoded&apos;);</span><br><span class="line">    req.setRequestHeader(&apos;Content-Length&apos;, params.length);</span><br><span class="line">    req.send(params.join(&apos;&amp;&apos;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当使用XHR发数据给服务器时，它比GET要快。这是因为对少量数据而言，向服务器发送 一个GET请求要占用一个单独的数据包。另一方面，一个POST至少发送两个数据包，一个用于信息头，另一个用于POST体。POST更适合用于向服务器发送大量数据，因为它不关心额外数据包的数量，又因为IE的URL长度限制，它不可能是会用过长的GET请求。</p>
+<h5 id="灯标"><a href="#灯标" class="headerlink" title="灯标"></a>灯标</h5><p>这个技术和动态脚本标签插入很类似。JS用于创建一个新的Image对象，将src设置为服务器上一个脚本文件的URL。这个URL包含我们打算通过GET格式传回的键值对数据。注意并没有创建img元素或者将它们插入到DOM中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var url = &apos;/status_tracker.php&apos;;</span><br><span class="line">var params = [</span><br><span class="line">    &apos;step=2&apos;,</span><br><span class="line">    &apos;time=1248027314&apos;</span><br><span class="line">];</span><br><span class="line">(new Image()).src = url + &apos;?&apos; + params.join(&apos;&amp;&apos;);</span><br></pre></td></tr></table></figure>
+<p>服务器获得此数据并保存，而不必返回客户端东西，因此也没有实际的图像显示。这是讲信息发回服务器最有效的方法。开销很小，而且任何服务器端错误都不会影响客户端。简单的图像灯标意味着所做的收到限制。不能发POST，所以URL长度被限制。可以用非常有限的方法接受返回数据。可以监听Image对象的load时间，它可以告诉你服务器端是否成功接受了数据。还可以检查服务器返回图片的高度和宽度（如果返回了一张图片）并用这些数字通知你服务器的状态。例如宽度1表示“成功”，2表示“重试”</p>
+<p>如果你不需要为此响应返回数据，那么你应当发送一个204 No Content响应代码，无消息正文。它将阻止客户端继续等待永远不会到来的消息体：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var url = &apos;/status_tracker.php&apos;;</span><br><span class="line">var params = [</span><br><span class="line">    &apos;step=2&apos;,</span><br><span class="line">    &apos;time=1248027314&apos;</span><br><span class="line">];</span><br><span class="line">var beacon = new Image();</span><br><span class="line">beacon.src = url + &apos;?&apos; + params.join(&apos;&amp;&apos;);</span><br><span class="line">beacon.onload = function() &#123;</span><br><span class="line">    if (this.width == 1) &#123;</span><br><span class="line">        // Success.</span><br><span class="line">    &#125;</span><br><span class="line">    else if (this.width == 2) &#123;</span><br><span class="line">        // Failure; create another beacon and try again.</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">beacon.onerror = function() &#123;</span><br><span class="line">    // Error; wait a bit, then create another beacon and try again.</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>灯标是服务器回送数据最快和最有效的方法。服务器根本不需要发回任何响应正文，所以不用担心客户端下载数据。唯一缺点是收到的响应类型是受限的。如果要向客户端返回大量数据，那么用XHR。如果只关心将数据发送到服务器端（可能需要极少的回复），那么用图像灯标。</p>
+<h3 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h3><p>考虑数据传输时，必须考虑 ：功能集、兼容性、性能和方向（发给服务器还是从服务器接受）。在考虑数据格式时，唯一需要比较的尺度就是速度。</p>
+<p>没有什么数据会始终比其他格式更好。要根据传什么，用于页面上干啥，某种格式可能下载更快，另一种格式可能解析更快。这一节讨论四种主流数据格式实现。我们对比文件大小，解析速度和服务器上构造它们的难以程度</p>
+<h4 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h4><p>现在用得很少了，仅做简单介绍总结：</p>
+<ul>
+<li>格式严格，易于验证</li>
+<li>极其冗长，有效数据比例低</li>
+<li>需要提前知道详细结构，确切知道如何解开这个结构然后写入js对象中</li>
+</ul>
+<p>++XML性能数据++</p>
+<p><img src="/2018/08/22/javascriptHP5/1.PNG" alt="image"></p>
+<p>现在基本没有传输数据使用XML了，因为性能太慢而且结构复杂，在高性能Ajax中没有XML的地位</p>
+<h4 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h4><p>JSON是现在用的得最广的数据交换格式。是一种轻量级且易于解析的数据格式，它按照JS对象和数组字面语法所编写。如果它被包装在一个回调函数中，JSON数据可称为能运行的js代码。在JS中解析JSON可简单使用()。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//基本格式</span><br><span class="line">[</span><br><span class="line">    &#123;&quot;id&quot;:1, &quot;username&quot;:&quot;alice&quot;, &quot;realname&quot;: &quot;Alice Smith&quot;, &quot;email&quot;:&quot;alice@alicesmith.com&quot;&#125;,</span><br><span class="line">    &#123;&quot;id&quot;:2, &quot;username&quot;:&quot;bob&quot;, &quot;realname&quot;: &quot;Bob Jones&quot;, &quot;email&quot;:&quot;bob@bobjones.com&quot;&#125;,</span><br><span class="line">    &#123;&quot;id&quot;:3, &quot;username&quot;:&quot;carol&quot;, &quot;realname&quot;: &quot;Carol Williams&quot;,&quot;email&quot;:&quot;carol@carolwilliams.com&quot;&#125;,</span><br><span class="line">    &#123;&quot;id&quot;:4, &quot;username&quot;:&quot;dave&quot;, &quot;realname&quot;: &quot;Dave Johnson&quot;, &quot;email&quot;:&quot;dave@davejohnson.com&quot;&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//精简版本</span><br><span class="line">[</span><br><span class="line">    &#123; &quot;i&quot;: 1, &quot;u&quot;: &quot;alice&quot;, &quot;r&quot;: &quot;Alice Smith&quot;, &quot;e&quot;: &quot;alice@alicesmith.com&quot; &#125;,</span><br><span class="line">    &#123; &quot;i&quot;: 2, &quot;u&quot;: &quot;bob&quot;, &quot;r&quot;: &quot;Bob Jones&quot;, &quot;e&quot;: &quot;bob@bobjones.com&quot; &#125;,</span><br><span class="line">    &#123; &quot;i&quot;: 3, &quot;u&quot;: &quot;carol&quot;, &quot;r&quot;: &quot;Carol Williams&quot;, &quot;e&quot;: &quot;carol@carolwilliams.com&quot; &#125;,</span><br><span class="line">    &#123; &quot;i&quot;: 4, &quot;u&quot;: &quot;dave&quot;, &quot;r&quot;: &quot;Dave Johnson&quot;, &quot;e&quot;: &quot;dave@davejohnson.com&quot; &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//数组版本，可读性差，尺寸非常小，大约只有标准格式的一半</span><br><span class="line">[</span><br><span class="line">    [ 1, &quot;alice&quot;, &quot;Alice Smith&quot;, &quot;alice@alicesmith.com&quot; ],</span><br><span class="line">    [ 2, &quot;bob&quot;, &quot;Bob Jones&quot;, &quot;bob@bobjones.com&quot; ],</span><br><span class="line">    [ 3, &quot;carol&quot;, &quot;Carol Williams&quot;, &quot;carol@carolwilliams.com&quot; ],</span><br><span class="line">    [ 4, &quot;dave&quot;, &quot;Dave Johnson&quot;, &quot;dave@davejohnson.com&quot; ]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/08/22/javascriptHP5/2.PNG" alt="image"></p>
+<p>上面是三种写法，对比大小，下载速度，解析时间。</p>
+<h4 id="JSON-P"><a href="#JSON-P" class="headerlink" title="JSON-P"></a>JSON-P</h4><p>事实上JSON可被本地执行有几个重要的性能影响。当使用XHR时JSON数据作为一个字符串返回。该字符串使用()转换为一个本地对象然而当使用动态脚本标签插入时，JSON数据被视为另一个JS文件并作为本地代码执行。为了做到这一点，数据必须被包装在回调函数之中。这就是所谓的“JSON填充”即“JSON-P”。下面是用JSON-P写的列表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">parseJSON([</span><br><span class="line">    &#123;&quot;id&quot;:1, &quot;username&quot;:&quot;alice&quot;, &quot;realname&quot;:&quot;Alice Smith&quot;, &quot;email&quot;:&quot;alice@alicesmith.com&quot;&#125;,</span><br><span class="line">    &#123;&quot;id&quot;:2, &quot;username&quot;:&quot;bob&quot;, &quot;realname&quot;:&quot;Bob Jones&quot;, &quot;email&quot;:&quot;bob@bobjones.com&quot;&#125;,</span><br><span class="line">    &#123;&quot;id&quot;:3, &quot;username&quot;:&quot;carol&quot;, &quot;realname&quot;:&quot;Carol Williams&quot;, &quot;email&quot;:&quot;carol@carolwilliams.com&quot;&#125;,</span><br><span class="line">    &#123;&quot;id&quot;:4, &quot;username&quot;:&quot;dave&quot;, &quot;realname&quot;:&quot;Dave Johnson&quot;, &quot;email&quot;:&quot;dave@davejohnson.com&quot;&#125;</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+<p>JSON-P因为回调包装的原因略微增加了文件尺寸，但与其解析性能的改进相比这点增加微不足道。由于数据作为本地JS处理，它的解析速度像本地JS一样快。下面是JSON-P传输三种JSON数据的时间：</p>
+<p><img src="/2018/08/22/javascriptHP5/3.PNG" alt="image"></p>
+<p>文件大小和下载时间和XHR测试基本相同，而解析时间几乎快了10倍。标准JSON-P解析时间为0，因为根本不用解析，它已经是本地格式了。简化版JSON-P和数组JSON-P也是如此，只是每种都需要转换成标准JSON-P直接给你那种格式。</p>
+<p>最快的JSON格式是数组JSON-P格式。如果你的项目要10000以上单元的列表，那JSON-P比JSON好很多。</p>
+<p>还有一个和性能无关的原因要避免使用JSON-P：因为JSON-P必须是可执行的JS，它使用动态标签注入技术可在任何网站中被任何人调用。从另一个角度说，JSON在运行前并不是有效的JAVASCRIPT，使用XHR时知识被当做字符串获取。不要将任何敏感的数据编码为JSON-P，因为你无法确定它是否包含私密信息，或者包含随机的URL或cookie。</p>
+<h4 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h4><p>请求的数据以HTML返回并显示在页面上。JS只是简单地下载然后把它放入innerHTML。HTML传输数据量偏大，也需要长时间解析，因为将HTML插入到DOM的单一操作看似简单，却仍需要时间向页面加载很多数据。作为数据格式，它的表现缓慢且臃肿。不建议使用</p>
+<h3 id="Ajax性能向导"><a href="#Ajax性能向导" class="headerlink" title="Ajax性能向导"></a>Ajax性能向导</h3><p>一旦选择了合适的数据传输技术和数据格式，就可以开始考虑其他的优化技术了。</p>
+<h4 id="缓存数据"><a href="#缓存数据" class="headerlink" title="缓存数据"></a>缓存数据</h4><p>最快的Ajax请求就是不使用它。有两种主要方法避免发出一个不必要的请求：</p>
+<ul>
+<li>在服务器端，设置HTTP头，确保返回报文将被缓存在浏览器中</li>
+<li>在客户端，与本地缓存已获取的数据，不要多次请求同一个数据</li>
+</ul>
+<p>第一种最容易设置和维护，而第二个给你最大程度的控制</p>
+<h4 id="设置HTTP头"><a href="#设置HTTP头" class="headerlink" title="设置HTTP头"></a>设置HTTP头</h4><p>如果想要Ajax响应报文能被浏览器缓存，必须在发起请求时使用GET方法。但还不够，还要在响应报文中发送 正确的HTTP头。Expires头告诉浏览器应当缓存响应报文多长时间。它的值是一个日期。当过期之后任何对该URL发起的请求都不再从缓存中获得，需要重新访问服务器。一个Expires头如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Expires: Mon, 28 Jul 2014 23:30:00 GMT</span><br></pre></td></tr></table></figure>
+<p>这是保证你的数据被缓存的最简单方法</p>
+<h4 id="本地存储数据"><a href="#本地存储数据" class="headerlink" title="本地存储数据"></a>本地存储数据</h4><p>除了以来浏览器，还可以手工实现，直接存储从服务器收到的相应报文。可以将响应报文存放在一个对象中，以URL为键值索引它。这是一个XHR封装，检查一个URL此前是否被取用过</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">var localCache = &#123;&#125;;</span><br><span class="line">function xhrRequest(url, callback) &#123;</span><br><span class="line">    // Check the local cache for this URL.</span><br><span class="line">    if (localCache[url]) &#123;</span><br><span class="line">        callback.success(localCache[url]);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    // If this URL wasn&apos;t found in the cache, make the request.</span><br><span class="line">    var req = createXhrObject();</span><br><span class="line">    req.onerror = function() &#123;</span><br><span class="line">        callback.error();</span><br><span class="line">    &#125;;</span><br><span class="line">    req.onreadystatechange = function() &#123;</span><br><span class="line">        if (req.readyState == 4) &#123;</span><br><span class="line">            if (req.responseText === &apos;&apos; || req.status == &apos;404&apos;) &#123;</span><br><span class="line">                callback.error();</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            // Store the response on the local cache.</span><br><span class="line">            localCache[url] = req.responseText;</span><br><span class="line">            callback.success(req.responseText);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    req.open(&quot;GET&quot;, url, true);</span><br><span class="line">    req.send(null);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总的来说，设置Expires头是更好的解决方案，也更容易。而手工缓存可以用程序废止缓存内容并获取新的数据。这种情况下从缓存中删除报文很简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delete localCache[&apos;/user/friendlist/&apos;];</span><br><span class="line">delete localCache[&apos;/user/contactlist/&apos;];</span><br></pre></td></tr></table></figure>
+<p>本地缓存也可以很好地工作于移动设备上。这类设备上的浏览器缓存很小或者根本不存在，手工缓存成为避免不必要请求的最佳选择。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/ldqUndefined" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2018 ldq<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
